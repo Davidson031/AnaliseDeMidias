@@ -28,8 +28,21 @@ class AnaliseController extends Controller
 
     public function salvar_analise(Request $request){
 
-        Analise::create($request->all());
+        //Analise::create($request->all());
         $analises = Analise::all();
+
+        $request->file->store('images', 'public');
+
+        $analise = new Analise();
+        $analise->titulo = $request->get('titulo');
+        $analise->analise = $request->get('analise');
+        $analise->tipo_midias_id = $request->get('tipo_midias_id');
+        $analise->nota = $request->get('nota');
+        $analise->file_path = $request->file->hashName();
+
+        $analise->save();
+
+        
         return view('principal', ['analises' => $analises]);
        
     }

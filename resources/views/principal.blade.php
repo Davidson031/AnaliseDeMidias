@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Tela de Analises</title>
+        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     </head>
     <body>
 
@@ -13,7 +14,8 @@
         @foreach ($analises as $analise)
             
             <h1>{{ $analise->titulo }}</h1>
-            <a href="/analise/{{ $analise->id }}"><img src={{ asset('thumbnails/twd.jpg') }} alt="Logo"></a>        
+            {{--<a href="/analise/{{ $analise->id }}"><img src={{ asset('thumbnails/twd.jpg') }} alt="Logo"></a> --}}   
+            <a href="/analise/{{ $analise->id }}"><img src="{{ asset('storage/images/'.$analise->file_path) }}" class="img" /></a>   
             <br><br> 
                    
         @endforeach

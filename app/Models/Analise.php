@@ -9,5 +9,5 @@ class Analise extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo', 'analise', 'nota', 'tipo_midias_id'];
+    protected $fillable = ['titulo', 'analise', 'nota', 'tipo_midias_id', "file_path"];
 }

@@ -13,7 +13,7 @@
     <h1>Cadastro de análises</h1>
     <br>
 
-    <form action={{ route('criar') }} method="post">
+    <form action={{ route('criar') }} method="post" enctype="multipart/form-data">
         @csrf
 
         Titulo da midia: <input name="titulo" type="text"><br><br>
@@ -26,7 +26,7 @@
             
                     <option value="{{ $tipo->id }}"> {{ $tipo->nome }} </option>
            
-                @endforeach
+           @endforeach
 
         </select>
 
@@ -41,6 +41,8 @@
                     <option value="4">4</option>
                     <option value="5">5</option>
                 </select>
+        <br><br>
+        Capa: <input type="file" name="file" required>
         <br><br>
         <button type="submit">Cadastrar</button>
     
