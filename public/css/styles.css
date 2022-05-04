@@ -2,5 +2,95 @@
     height: auto; 
     width: auto; 
     max-width: 300px; 
-    max-height: 300px;
+    max-height: 200px;
 }
+
+.grid {
+
+    display: grid;
+    margin-left: 200px;
+    margin-right: 100px;
+
+    gap: 1px;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 10px;
+    border-radius: 10px;
+   
+
+  }
+  
+  div > div {
+
+    background-color: #ccc;
+    padding: 10px;
+  }
+
+  grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 75px;
+    grid-gap: 10px;
+  }
+  
+  grid-item {
+    display: flex;            /* new */
+    align-items: center;      /* new */
+    justify-content: center;  /* new */
+  }
+  
+  grid-item {
+    border: 1px solid #ccc;
+  }
+
+  body {
+    background-color: #ccc;
+    font-family: "Lato", sans-serif;
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 150px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .sidenav a {
+    padding: 6px 6px 6px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+
+  .footer a {
+      color:white;
+  }

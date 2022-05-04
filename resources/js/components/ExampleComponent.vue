@@ -1,18 +1,32 @@
 <template>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
+   <v-card
+    class="pa-4"
+    flat
+    height="300px"
+    img="https://cdn.vuetifyjs.com/images/toolbar/map.jpg"
+  >
+    <v-toolbar
+      dense
+      floating
+    >
+      <v-text-field
+        hide-details
+        prepend-icon="mdi-magnify"
+        single-line
+      ></v-text-field>
 
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      <v-btn icon>
+        <v-icon>mdi-crosshairs-gps</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+    </v-toolbar>
+  </v-card>
+
+
 </template>
 
 <script>
