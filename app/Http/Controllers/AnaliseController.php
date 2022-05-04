@@ -67,7 +67,8 @@ class AnaliseController extends Controller
         $user = DB::table('comentarios')
         ->join('analises', 'comentarios.analises_id', '=', 'analises.id')->get();     
 
-        return view('teste', ['res' => $user]);
+        //return view('teste', ['res' => $user]);
+        return view('welcome');
 
     }
 

@@ -29,6 +29,10 @@ Route::get('/analise/{id}', [\App\Http\Controllers\AnaliseController::class, 'ex
 
 Route::post('/salvar_comentario/{id}', [\App\Http\Controllers\ComentarioController::class, 'salvar'])->name('salvar_comentario');
 
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
