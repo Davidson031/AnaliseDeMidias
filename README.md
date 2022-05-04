@@ -3,7 +3,7 @@
 
 Pequeno site de Análise de filmes, séries e animes.
 
-100% próprio, feito do zero desde a modelagem UML até a codificação do front-end pelo Vue.
+100% próprio, feito do zero desde a modelagem UML até a codificação.
 
 O user logado poderá inserir uma análise por uma rota bloqueada por autenticação.
 
