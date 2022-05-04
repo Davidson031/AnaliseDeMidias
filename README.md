@@ -1,9 +1,6 @@
 <img src="https://i.imgur.com/9yJ2Q3k.jpeg">
 
-<iframe width="420" height="315"
-src="https://youtu.be/zyhO6oQKSUA">
-</iframe>
-
+Funcionamento parcial do projeto (04/05/2022) demonstrado em: https://youtu.be/zyhO6oQKSUA
 
 Pequeno site de Análise de filmes, séries e animes.
 
