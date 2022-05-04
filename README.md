@@ -1,3 +1,6 @@
+<img src="https://i.imgur.com/9yJ2Q3k.jpeg">
+
+
 Pequeno site de Análise de filmes, séries e animes.
 
 100% próprio, feito do zero desde a modelagem UML até a codificação do front-end pelo Vue.
