@@ -5,23 +5,23 @@
     </head>
     <body>
 
-        <div class="sidenav">
-            <side-nav-item><a href="/">Tudo</a></side-nav-item>
-            <a href="/filmes">Filmes</a>
-            <a href="/series">Séries</a>
-            <a href="/animes">Animes</a>
+        <div class="sidebar">
+        <a class="active" href="/">Home</a>
+        <a href="/filmes">Filmes</a>
+        <a class="active" href="/series">Séries</a>
+        <a href="/animes">Animes</a>
+        <a class="active" href="/novelas">Novelas</a>
         </div>
 
-        <div class="main">
-        </div>
 
+        
+        <br><br>
         <div class="grid">
         @foreach ($analises as $analise)
 
-            <div> 
-            <grid-item><h1>{{ $analise->titulo }}</h1></grid-item> 
+            <div class="quadrado"> 
+
             <grid-item><a href="/analise/{{ $analise->id }}"><img src="{{ asset('storage/images/'.$analise->file_path) }}" class="img" alt="Logo"></a> </grid-item>   
-            <br><br> 
             </div>
                    
         @endforeach
@@ -32,7 +32,6 @@
         <a href="/criar"><p>Registrar nova análise</p></a>
     </div>
     </body>
-
     
 </html>
 

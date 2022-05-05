@@ -5,25 +5,39 @@
     max-height: 200px;
 }
 
+.item{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.quadrado{
+    opacity: 1;
+}
 .grid {
 
     display: grid;
     margin-left: 200px;
     margin-right: 100px;
-
     gap: 1px;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     padding: 10px;
     border-radius: 10px;
    
-
   }
   
   div > div {
 
-    background-color: #ccc;
+    background-color: #A9A996;
     padding: 10px;
+
+
   }
+
+  html {
+    
+    background-image: url("/images/avengers.jpg");
+    
+}
 
   grid-container {
     display: grid;
@@ -36,40 +50,16 @@
     display: flex;            /* new */
     align-items: center;      /* new */
     justify-content: center;  /* new */
+    padding-right: 0px;
+    padding-left: 0px;
   }
   
-  grid-item {
-    border: 1px solid #ccc;
-  }
 
   body {
-    background-color: #ccc;
+    
     font-family: "Lato", sans-serif;
   }
 
-  .sidenav {
-    height: 100%;
-    width: 150px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
-  }
-  
-  .sidenav a {
-    padding: 6px 6px 6px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-  }
-  
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
   
   .main {
     margin-left: 200px; /* Same as the width of the sidenav */
@@ -93,4 +83,157 @@
 
   .footer a {
       color:white;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar {
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #A9A996;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+  }
+   
+  .sidebar a.active {
+    background-color: #57584F;
+    color: white;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: black;
+    color: white;
+  }
+
+  .sidebar a:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+  
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+
+  div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+
+
+
+
+
+
+
+
+
+  * {
+    box-sizing: border-box;
+    }
+  
+  input[type=text], select, textarea {
+    width: 400px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: horizontal;
+  }
+  
+  label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+  }
+  
+  .titulo {
+    text-align:center;
+    color: white;
+
+  
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: left;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  .container {
+    position:relative; left:20px; top:20px;
+    border-radius: 5px;
+    background-color: #57584F;
+    padding: 20px;
+    height: 700px;
+    width: 35%;
+  }
+  
+  .col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  .col-75 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .row {
+      background-color: #A9A996;
+  }
+  
+  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+      width: 100%;
+      margin-top: 0;
+    }
   }
