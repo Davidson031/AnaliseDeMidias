@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FileController;
-
-
+require __DIR__.'/auth.php';
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,11 +13,17 @@ use App\Http\Controllers\FileController;
 |
 */
 
-Route::post('/image-resize', [FileController::class, 'imgResize'])->name('img-resize');
+Route::get('/', [\App\Http\Controllers\AnaliseController::class, 'principal']);
 
-Route::get('/criar', [\App\Http\Controllers\AnaliseController::class, 'criar_analise'])->name('criar');
 
-Route::post('/criar', [\App\Http\Controllers\AnaliseController::class, 'salvar_analise'])->name('criar');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+
+Route::get('/criar', [\App\Http\Controllers\AnaliseController::class, 'criar_analise'])->name('criar')->middleware('auth');
+
+Route::post('/criar', [\App\Http\Controllers\AnaliseController::class, 'salvar_analise'])->name('criar')->middleware('auth');
 
 Route::get('/testes', [\App\Http\Controllers\AnaliseController::class, 'teste']);
 
@@ -36,3 +40,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/deletarcomentario/{id}', [\App\Http\Controllers\ComentarioController::class, 'deletar_comentario'])->name('deletar')->middleware('auth');
+
+
+
+

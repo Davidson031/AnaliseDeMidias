@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Comentario;
 use App\Models\Analise;
+use Illuminate\Support\Facades\DB;
+
 
 class ComentarioController extends Controller
 {
@@ -20,4 +22,15 @@ class ComentarioController extends Controller
  
         return redirect()->back();
     }
+
+
+    public function deletar_comentario(Request $request, $id){
+ 
+        $deleted = DB::table('comentarios')->where('id', $id)->delete();
+        return redirect()->back();
+    
+    }
+
+
+
 }

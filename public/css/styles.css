@@ -25,13 +25,20 @@
    
   }
   
+  .material-icons {
+    color:red;
+    align-items: center;
+  }
+
+
+
   div > div {
 
     background-color: #A9A996;
     padding: 10px;
 
-
   }
+  
 
   html {
     
@@ -76,6 +83,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
+    height: 3%;
     background-color: black;
     color: white;
     text-align: center;
@@ -88,6 +96,7 @@
   body {
     margin: 0;
     font-family: "Lato", sans-serif;
+    min-height: 200vh;
   }
   
   .sidebar {
@@ -152,7 +161,11 @@
   }
 
 
-
+  .comentarios {
+    
+    position:absolute; 
+    left:500px; 
+  }
 
 
 

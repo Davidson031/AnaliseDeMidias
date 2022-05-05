@@ -53,12 +53,12 @@ class AnaliseController extends Controller
                     ->join('tipo_midias', 'analises.tipo_midias_id', '=', 'tipo_midias.id')
                     ->where('analises.id', $id)->first();
 
-        $comentarios = DB::table('comentarios')
-                ->join('analises', 'comentarios.analises_id', '=', 'analises.id')
+        $comentarios = DB::table('analises')
+                ->join('comentarios', 'comentarios.analises_id', '=', 'analises.id')
                 ->where('comentarios.analises_id', $id)
                 ->get();     
         
-        return view('detalhe', ['analise' => $analise, 'comentarios' => $comentarios, 'id' => $id]);
+        return view('detalhe', ['analise' => $analise, 'comentarios' => $comentarios]);
 
     }
 
