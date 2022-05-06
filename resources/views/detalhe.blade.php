@@ -42,9 +42,11 @@
 <br>
 
 
+
+
 <div class="comentarios">
     <h1>Comentários</h1><br><br>
-    <form action="/salvar_comentario/{{$analise->id}}" method="post">
+    <form action="/salvar_comentario/{{$id}}" method="post">
         @csrf
         <label class="xxx">Seu nome: </label><input name="nome" type="text"><br><br>
         <label class="xxx">Seu email: </label><input name="email" type="text"><br><br>
@@ -57,13 +59,22 @@
             
     <h1>{{ $comentario->nome }}</h1>
     Mensagem: <br><br>
-    {{ $comentario->mensagem }} <br><br>
+    <textarea id="comentario" name="comentario"> {{ $comentario->mensagem }} </textarea>
+    <button id="btn_settings" onclick="return alterarCaixaComentario();"> <i class="material-icons" id="btn_settings_icon">settings</i></button>
+    <br><br>
 
 
-    <p class = "barra-comentario">
-      <a href="/"> <i class="material-icons">settings</i></a>
-      <a href="/deletarcomentario/{{$comentario->id}}"> <i class="material-icons">delete</i></a>
-    </p>
+    <form action="/atualizarcomentario/{{$comentario->id}}" method="post">
+        @csrf
+      <p class = "barra-comentario">
+   
+      <button type="submit"> <i class="material-icons">save</i></button>
+      <a href="/deletarcomentario/{{$comentario->id}}"><button type="button"> <i class="material-icons">delete</i></button></a>
+      </form>
+
+    
+      </p>
+    
    
      
 
@@ -82,5 +93,8 @@
    <div class="footer">
         <a href="/criar"><p>Registrar nova análise</p></a>
     </div>
+
+
+  <script type="text/javascript" src="{{ URL::asset('js/script.js') }}"></script>
 </body>
 </html>

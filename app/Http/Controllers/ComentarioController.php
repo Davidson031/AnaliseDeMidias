@@ -23,7 +23,15 @@ class ComentarioController extends Controller
         return redirect()->back();
     }
 
+    public function atualizar_comentario(Request $request, $id){
+ 
+        @dd($request);
 
+        //$deleted = DB::table('comentarios')->where('id', $id)->delete();
+        //return redirect()->back();
+    
+    }
+    
     public function deletar_comentario(Request $request, $id){
  
         $deleted = DB::table('comentarios')->where('id', $id)->delete();

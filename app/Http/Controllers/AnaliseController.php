@@ -58,7 +58,7 @@ class AnaliseController extends Controller
                 ->where('comentarios.analises_id', $id)
                 ->get();     
         
-        return view('detalhe', ['analise' => $analise, 'comentarios' => $comentarios]);
+        return view('detalhe', ['analise' => $analise, 'comentarios' => $comentarios, 'id' => $id]);
 
     }
 

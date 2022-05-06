@@ -47,6 +47,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/deletarcomentario/{id}', [\App\Http\Controllers\ComentarioController::class, 'deletar_comentario'])->name('deletar')->middleware('auth');
 
+Route::post('/atualizarcomentario/{id}', [\App\Http\Controllers\ComentarioController::class, 'atualizar_comentario'])->name('deletar')->middleware('auth');
+
 
 
 
