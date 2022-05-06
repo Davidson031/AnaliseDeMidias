@@ -25,10 +25,18 @@ class ComentarioController extends Controller
 
     public function atualizar_comentario(Request $request, $id){
  
-        @dd($request);
+        $comentario = Comentario::find($id);
+ 
+        $comentario->mensagem = $request->get('comentario');
+        
+        $comentario->save();
+
+        return redirect()->back();
+
 
         //$deleted = DB::table('comentarios')->where('id', $id)->delete();
         //return redirect()->back();
+        
     
     }
     

@@ -57,22 +57,22 @@
 
   @foreach ($comentarios as $comentario)
             
+    <form action="/atualizarcomentario/{{$comentario->id}}" method="post">
     <h1>{{ $comentario->nome }}</h1>
     Mensagem: <br><br>
     <textarea id="comentario" name="comentario"> {{ $comentario->mensagem }} </textarea>
-    <button id="btn_settings" onclick="return alterarCaixaComentario();"> <i class="material-icons" id="btn_settings_icon">settings</i></button>
+    <button id="btn_settings" onclick="return alterarCaixaComentario();" type="button"> <i class="material-icons" id="btn_settings_icon">settings</i></button>
     <br><br>
 
 
-    <form action="/atualizarcomentario/{{$comentario->id}}" method="post">
+    
         @csrf
       <p class = "barra-comentario">
    
       <button type="submit"> <i class="material-icons">save</i></button>
       <a href="/deletarcomentario/{{$comentario->id}}"><button type="button"> <i class="material-icons">delete</i></button></a>
       </form>
-
-    
+      
       </p>
     
    
