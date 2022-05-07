@@ -25,9 +25,23 @@
    
   }
   
-  .material-icons {
+  i.material-icons {
     color:red;
     align-items: center;
+    
+  }
+
+  .stars {
+    position: absolute;
+    left: 260px;
+    bottom: 950px;
+    top:50px;
+  }
+  
+  i.material-icons#stars {
+    font-size: 85px;
+    color: black;
+
   }
 
 
@@ -266,11 +280,6 @@
 
 
 
-
-
-
-
-
   :root {
     --box-x-padding: 2rem;
     --box-y-padding: 2rem;
@@ -292,7 +301,7 @@
       grid-template-rows: repeat(3, auto);
       grid-template-columns: 4fr 4fr 5fr;
       grid-template-areas: '. . title' 'img img content' 'img img .';
-      max-width: 1000px;
+      max-width: 1500px;
       margin-right: auto;
       margin-left: auto;
     }

@@ -16,6 +16,20 @@
 </div>
 
 
+<div class="stars">
+  @for($i = 0; $i < $analise->nota; $i++)
+    <i class="material-icons" id="stars">star</i>
+  @endfor
+
+  @if($analise->nota < 5)
+    @for($i=1; $i <= (5-$analise->nota); $i++)
+      <i class="material-icons" id="stars">star_outline</i>
+    @endfor
+  @endif
+      
+  
+
+</div>
 
 
 <section>
