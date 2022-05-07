@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Analise;
 use App\Models\TipoMidia;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Auth;
 
 class AnaliseController extends Controller
 {
@@ -28,7 +28,6 @@ class AnaliseController extends Controller
 
     public function salvar_analise(Request $request){
 
-        //Analise::create($request->all());
         $analises = Analise::all();
 
         $request->file->store('images', 'public');
@@ -49,6 +48,9 @@ class AnaliseController extends Controller
 
     public function exibir_analise($id){
 
+        $isUserAutheticated = Auth::check();
+
+
         $analise = DB::table('analises')
                     ->join('tipo_midias', 'analises.tipo_midias_id', '=', 'tipo_midias.id')
                     ->where('analises.id', $id)->first();
@@ -58,7 +60,7 @@ class AnaliseController extends Controller
                 ->where('comentarios.analises_id', $id)
                 ->get();     
         
-        return view('detalhe', ['analise' => $analise, 'comentarios' => $comentarios, 'id' => $id]);
+        return view('detalhe', ['analise' => $analise, 'comentarios' => $comentarios, 'id' => $id, 'checkUser' => $isUserAutheticated]);
 
     }
 

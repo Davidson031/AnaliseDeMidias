@@ -7,7 +7,6 @@
 <body>
 
 
-
 <div class="sidebar">
         <a class="active" href="/">Home</a>
         <a href="/filmes">Filmes</a>
@@ -58,22 +57,21 @@
   @foreach ($comentarios as $comentario)
             
     <form action="/atualizarcomentario/{{$comentario->id}}" method="post">
+    @csrf
     <h1>{{ $comentario->nome }}</h1>
     Mensagem: <br><br>
-    <textarea id="comentario" name="comentario"> {{ $comentario->mensagem }} </textarea>
-    <button id="btn_settings" onclick="return alterarCaixaComentario();" type="button"> <i class="material-icons" id="btn_settings_icon">settings</i></button>
+    <textarea id="comentario" name="comentario"@if(!$checkUser)disabled @endif>{{ $comentario->mensagem }} </textarea>
     <br><br>
-
-
-    
-        @csrf
-      <p class = "barra-comentario">
+  
+    <p class = "barra-comentario">
    
-      <button type="submit"> <i class="material-icons">save</i></button>
-      <a href="/deletarcomentario/{{$comentario->id}}"><button type="button"> <i class="material-icons">delete</i></button></a>
-      </form>
-      
-      </p>
+        @if($checkUser)
+          <button type="submit"> <i class="material-icons">save</i></button>
+          <a href="/deletarcomentario/{{$comentario->id}}"><button type="button"> <i class="material-icons">delete</i></button></a>
+          </form>
+        @endif
+
+    </p>
     
    
      
