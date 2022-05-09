@@ -29,7 +29,7 @@ Route::get('/testes', [\App\Http\Controllers\AnaliseController::class, 'teste'])
 
 Route::get('/{tipo?}', [\App\Http\Controllers\AnaliseController::class, 'exibir_lista'])->name('principal');
 
-Route::get('/analise/{id}', [\App\Http\Controllers\AnaliseController::class, 'exibir_analise']);
+Route::get('/analise/{id?}', [\App\Http\Controllers\AnaliseController::class, 'exibir_analise']);
 
 Route::post('/salvar_comentario/{id}', [\App\Http\Controllers\ComentarioController::class, 'salvar'])->name('salvar_comentario');
 

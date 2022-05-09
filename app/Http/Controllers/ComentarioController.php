@@ -32,11 +32,6 @@ class ComentarioController extends Controller
         $comentario->save();
 
         return redirect()->back();
-
-
-        //$deleted = DB::table('comentarios')->where('id', $id)->delete();
-        //return redirect()->back();
-        
     
     }
     

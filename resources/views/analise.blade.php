@@ -1,98 +1,87 @@
-<html>
-    <head>
-        <title>Cadastro de Analise</title>
-        <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    </head>
-    <body>
-        <div class="sidebar">
-        <a class="active" href="/">Home</a>
-        <a href="/filmes">Filmes</a>
-        <a class="active" href="/series">Séries</a>
-        <a href="/animes">Animes</a>
-        <a class="active" href="/novelas">Novelas</a>
-        </div>
+@extends('layouts.base')
 
 
-        <div class="content">
-            <div class="container">
-                <h1 class="titulo">Cadastro de Mídia</h1>
+@section('conteudo')
+
+
+<div class="content_cadastro">
+    <div class="container_cadastro">
+        <h1 class="titulo">Fazer Analise</h1>
+
+        <form action={{ route('criar') }} method="post" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+                <div class="col-25">
+                <label id="fname">Titulo: </label>
+                </div>
+                <div class="col-75">
+                <input name="titulo" type="text">
+                </div>
+            </div>
+            
+
+            <br>
+
+            <div class="row">
+                <div class="col-25">
+                <label id="fname">Tipo:</label>
+            </div>
+                <div class="col-75">
+                    <select name="tipo_midias_id">
         
-                <form action={{ route('criar') }} method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="row">
-                        <div class="col-25">
-                        <label for="fname">Titulo: </label>
-                        </div>
-                        <div class="col-75">
-                        <input name="titulo" type="text">
-                        </div>
-                    </div>
+                        @foreach ($tipos as $tipo)
 
-                    <div class="row">
-                        <div class="col-25">
-                        <label for="lname">Tipo</label>
-                    </div>
-                        <div class="col-75">
-                            <select name="tipo_midias_id">
+                            <option value="{{ $tipo->id }}"> {{ $tipo->nome }} </option>
+                
+                        @endforeach
 
-                                    
-                                @foreach ($tipos as $tipo)
+                    </select>     
+                </div>      
+            </div>
 
-                                    <option value="{{ $tipo->id }}"> {{ $tipo->nome }} </option>
-                        
-                                @endforeach
 
-                            </select>
-
-                    
-                        </div>
-                    
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                        <label for="country">Nota</label>
-                    </div>
-                    <div class="col-75">
-                    <select name="nota">
+            <div class="row">
+                <div class="col-25">
+                <label id="fname">Nota:</label>
+                </div>
+            <div class="col-75">
+                <select name="nota">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
-                    </select>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-25">
-                    <label for="subject">Analise</label>
-                    </div>
-                    <div class="col-75">
-                    <textarea id="subject" name="analise" placeholder="Escreva aqui sua analise.." style="height:200px"></textarea>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                        <label for="fname">Capa: </label>
-                        </div>
-                        <div class="col-75">
-                        <input type="file" name="file" required value>
-                        </div>
-                    </div>
-                    <br>
-                    
-                    <input type="submit" value="Submit">
-                    
-                </form>
+                </select>
             </div>
-        </div>
+            </div>
+
+            <div class="row">
+                <div class="col-25">
+                <label id="fname">Analise:</label>
+            </div>
 
 
-    
+            <div class="col-75">
+            <textarea id="subject" name="analise" placeholder="Escreva aqui sua analise.." style="height:200px"></textarea>
+            </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-25">
+                <label id="fname">Capa: </label>
+                </div>
+                <div class="col-75">
+                <input type="file" name="file" required value>
+                </div>
+            </div>
+            <br>
+            
+            <input type="submit" value="Enviar">
+            
+        </form>
+    </div>
+</div>
 
-</body>
-    
-    
-</html>
-
+@endsection
 
 

@@ -12,23 +12,47 @@ class AnaliseController extends Controller
 {
     //
 
+    public function retornarNomeDoUser(){
+        $isUserAutheticated = Auth::check();
+        $user = Auth::user();
+
+        if($user){
+            return $user->name;
+        }else{
+            return 'Visitante';
+        }
+    }
+
+
     public function criar_analise(Request $request){
 
         $tipos = TipoMidia::all();
-        return view('analise', ['tipos' => $tipos]);
+
+        $username = self::retornarNomeDoUser();
+    
+        return view('analise', ['tipos' => $tipos,'user' => $username]);
 
     }
+
+    
 
     public function principal(Request $request){
 
+        $username = self::retornarNomeDoUser();
+    
         $analises = Analise::all();
-        return view('principal', ['analises' => $analises]);
+
+
+    return view('principal', ['analises' => $analises, 'user' => $username]);
 
     }
 
+    
     public function salvar_analise(Request $request){
 
         $analises = Analise::all();
+
+        $username = self::retornarNomeDoUser();
 
         $request->file->store('images', 'public');
 
@@ -42,13 +66,14 @@ class AnaliseController extends Controller
         $analise->save();
 
         
-        return view('principal', ['analises' => $analises]);
+        return view('principal', ['analises' => $analises, 'user' => $username]);
        
     }
 
     public function exibir_analise($id){
 
-        $isUserAutheticated = Auth::check();
+        $username = self::retornarNomeDoUser();
+
 
 
         $analise = DB::table('analises')
@@ -60,23 +85,19 @@ class AnaliseController extends Controller
                 ->where('comentarios.analises_id', $id)
                 ->get();     
         
-        return view('detalhe', ['analise' => $analise, 'comentarios' => $comentarios, 'id' => $id, 'checkUser' => $isUserAutheticated]);
+        return view('detalhe', ['analise' => $analise, 'comentarios' => $comentarios, 'id' => $id, 'user' => $username]);
 
     }
 
     public function teste(){
-
-        $user = DB::table('comentarios')
-        ->join('analises', 'comentarios.analises_id', '=', 'analises.id')->get();     
-
-        //return view('teste', ['res' => $user]);
-        return view('welcome');
+   
+        return view('teste');
 
     }
 
     public function exibir_lista($tipo = null){
 
-        $analises = Analise::all();
+        $username = self::retornarNomeDoUser();   
 
         if($tipo=="animes"){
             $analises = Analise::where('tipo_midias_id', 3)->get();
@@ -90,7 +111,7 @@ class AnaliseController extends Controller
             $analises = Analise::where('tipo_midias_id', 2)->get();
         }
         
-        return view('principal', ['analises' => $analises]);
+        return view('principal', ['analises' => $analises,'user' => $username]);
     
     }
 
