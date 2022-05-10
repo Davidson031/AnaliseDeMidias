@@ -1,4 +1,4 @@
-<img src="https://i.imgur.com/VpC4jgH.jpg">
+<img src="https://i.imgur.com/gJflat2.png">
 
 Funcionamento parcial do projeto **1** (04/05/2022) demonstrado em: https://youtu.be/zyhO6oQKSUA
 
