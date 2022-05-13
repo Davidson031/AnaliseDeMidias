@@ -1,9 +1,8 @@
 <img src="https://i.imgur.com/gJflat2.png">
 
-Funcionamento parcial do projeto **1** (04/05/2022) demonstrado em: https://youtu.be/zyhO6oQKSUA
+Funcionamento parcial do projeto **7** (13/05/2022) demonstrado em: https://youtu.be/XCuMNzVA93s
 
 
-Funcionamento parcial do projeto **2** (04/05/2022) demonstrado em: https://youtu.be/oEJyt_jUtSw
 
 Pequeno site de Análise de filmes, séries e animes.
 
